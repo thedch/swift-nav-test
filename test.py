@@ -9,4 +9,4 @@ testSequence = fib.printFibonacci(len(idealSequence))
 for i, val in enumerate(idealSequence):
 	if idealSequence[i] != testSequence[i]:
 		print('Error at index', i, 'expected value', idealSequence[i],
-			'but got', testSequence[i])
+		'but got', testSequence[i])
