@@ -7,7 +7,8 @@ import timeit # used for runtime testing
 
 
 def fibonacci(n):
-    '''Returns a list of the first n Fibonacci numbers.'''
+    '''Returns a list of the first n Fibonacci numbers, where the first number
+    is 0, the second is 1, etc.'''
     fibs = [0]*n
     fibs[1] = 1 # set up the initial sequence of 0, 1
     for i in range(2, n):
@@ -41,16 +42,21 @@ def printFibonacci(n):
     the value F(n) otherwise.
     '''
     fibs = fibonacci(n)
+    # print(fibs)
     primes = createPrimeLookupTable(fibs[n-1]) # the nth Fibonacci number is 
     # at fibs[n-1], so the prime lookup table needs to be based on that
+    fizzbuzz = []
     for i in fibs:
         if primes[i]:
-            print('BuzzFizz')
+            fizzbuzz.append('BuzzFizz')
+            # print('BuzzFizz')
         else:
-            print('Fizz' * (i % 5 == 0) + 'Buzz' * (i % 3 == 0) or str(i))
+            fizzbuzz.append('Fizz' * (i % 5 == 0) + 'Buzz' * (i % 3 == 0) or str(i))
+            # print('Fizz' * (i % 5 == 0) + 'Buzz' * (i % 3 == 0) or str(i))
+    return fizzbuzz
 
 if __name__ == '__main__':
     start = timeit.default_timer()
-    printFibonacci(35)
+    print(printFibonacci(35))
     stop = timeit.default_timer()
     print('This program took', stop - start, 'seconds')
