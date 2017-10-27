@@ -33,7 +33,7 @@ def createPrimeLookupTable(n):
     return primes
 
 def fizzBuzzFibonacci(n):
-    '''Puts the first n Fibonacci numbers in a list according to the following rules:
+    '''Returns the first n Fibonacci numbers in a list according to the following rules:
     Print:
     "BuzzFizz" when F(n) is prime.
     "FizzBuzz" when F(n) is divisible by 15.
