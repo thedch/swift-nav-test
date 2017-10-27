@@ -41,18 +41,15 @@ def printFibonacci(n):
     "Fizz" when F(n) is divisible by 5.
     the value F(n) otherwise.
     '''
-    fibs = fibonacci(n)
-    # print(fibs)
+    fibs = fibonacci(n)    
     primes = createPrimeLookupTable(fibs[n-1]) # the nth Fibonacci number is 
     # at fibs[n-1], so the prime lookup table needs to be based on that
     fizzbuzz = []
     for i in fibs:
         if primes[i]:
-            fizzbuzz.append('BuzzFizz')
-            # print('BuzzFizz')
+            fizzbuzz.append('BuzzFizz')            
         else:
-            fizzbuzz.append('Fizz' * (i % 5 == 0) + 'Buzz' * (i % 3 == 0) or str(i))
-            # print('Fizz' * (i % 5 == 0) + 'Buzz' * (i % 3 == 0) or str(i))
+            fizzbuzz.append('Fizz' * (i % 5 == 0) + 'Buzz' * (i % 3 == 0) or str(i))            
     return fizzbuzz
 
 if __name__ == '__main__':
