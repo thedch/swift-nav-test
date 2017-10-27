@@ -13,13 +13,13 @@ def fibonacci(n):
     fibs[1] = 1 # set up the initial sequence of 0, 1
     for i in range(2, n):
         fibs[i] = fibs[i - 1] + fibs[i - 2]
-    return fibs # this algorithm adopts the modern usage of adding 0 to the 
+    return fibs # this algorithm adopts the modern usage of adding 0 to the
     # beginning of the sequence: 0, 1, 1, 2, 3, 5, etc.
 
 def createPrimeLookupTable(n):
-    '''Returns a list of booleans of length n + 1, each value representing the 
+    '''Returns a list of booleans of length n + 1, each value representing the
     primality of the index.
-    Ex: primes[4] -> false 
+    Ex: primes[4] -> false
         primes[5] -> true
 
     Uses the Sieve of Eratosthenes algorithm.'''
@@ -32,8 +32,8 @@ def createPrimeLookupTable(n):
                 primes[j] = False
     return primes
 
-def printFibonacci(n):
-    '''Prints the first Fibonacci numbers according to the following rules:
+def fizzBuzzFibonacci(n):
+    '''Puts the first n Fibonacci numbers in a list according to the following rules:
     Print:
     "BuzzFizz" when F(n) is prime.
     "FizzBuzz" when F(n) is divisible by 15.
@@ -41,19 +41,19 @@ def printFibonacci(n):
     "Fizz" when F(n) is divisible by 5.
     the value F(n) otherwise.
     '''
-    fibs = fibonacci(n)    
-    primes = createPrimeLookupTable(fibs[n-1]) # the nth Fibonacci number is 
+    fibs = fibonacci(n)
+    primes = createPrimeLookupTable(fibs[n-1]) # the nth Fibonacci number is
     # at fibs[n-1], so the prime lookup table needs to be based on that
     fizzbuzz = []
     for i in fibs:
         if primes[i]:
-            fizzbuzz.append('BuzzFizz')            
+            fizzbuzz.append('BuzzFizz')
         else:
-            fizzbuzz.append('Fizz' * (i % 5 == 0) + 'Buzz' * (i % 3 == 0) or str(i))            
+            fizzbuzz.append('Fizz' * (i % 5 == 0) + 'Buzz' * (i % 3 == 0) or str(i))
     return fizzbuzz
 
 if __name__ == '__main__':
     start = timeit.default_timer()
-    print(printFibonacci(35))
+    print(fizzBuzzFibonacci(35))
     stop = timeit.default_timer()
     print('This program took', stop - start, 'seconds')
